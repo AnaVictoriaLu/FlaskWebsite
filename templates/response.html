@@ -1,0 +1,13 @@
+{% extends "conferences.html" %}
+
+{% block title %}{{ super() }} - Message Received{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <body>
+            <h1> Thank you <strong>{{ name }}</strong> !</h1>
+            <p>Your reservation was successful.</p>
+            <p>Check your inbox for more information.</p>
+        </body>
+    </div>
+{% endblock %}

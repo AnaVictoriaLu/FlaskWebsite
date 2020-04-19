@@ -1,0 +1,139 @@
+{% extends "index.html" %}
+
+{% block title %}{{ super() }} - Blog{% endblock %}
+
+{% block content %}
+     <style>
+         a{
+             color:black;
+         }
+         a:hover{
+             text-decoration: None;
+         }
+         thead{
+             font-family:"Book Antiqua";
+         }
+         .buttonz{
+             text-align: center;
+         }
+         #mybtn {
+              display: inline-block;
+              border-radius: 12px;
+              background-color: #ff4d4a;
+              border: none;
+              color: white;
+              text-align: center;
+              font-size: 20px;
+              padding: 20px;
+              width: 200px;
+              transition: all 0.5s;
+              cursor: pointer;
+              margin: 5px;
+         }
+         #mybtn:hover{
+             opacity: 0.7;
+         }
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          padding-top: 100px;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0,0,0);
+          background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content{
+            text-align: center;
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content a {
+            font-family:"Palatino Linotype", "Book Antiqua";
+            font-weight:lighter;
+            font-size: 25px;
+            color: 	black;
+            padding: 20px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .modal-content a:hover{
+            color: grey;
+        }
+
+        .close {
+          position: absolute;
+          top: 15px;
+          right: 35px;
+          color: black;
+          font-size: 50px;
+          font-weight: bold;
+          transition: 0.3s;
+        }
+
+        .close:hover,.close:focus {
+          color: grey;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+    </style>
+    <div class="container">
+     <table class="table table table-bordered table-hover table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Tending</th>
+                    <th>April</th>
+                    <th>May</th>
+                    <th>June</th>
+                    <th>July</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for topic in topic_list %}
+                    <tr>
+                        {% for col in topic[:1] %}
+                            <td><a class="topic" href="{{ prefix }}{{ col }}">{{ col }}</a></td>
+                        {%  endfor %}
+                        {% for col in topic[1:] %}
+                            <td><a class="topic" href="{{ prefix }}{{ col }}">{{ col }}</a></td>
+                        {%  endfor %}
+                    </tr>
+                {%  endfor %}
+            </tbody>
+     </table>
+    </div>
+    <div class=buttonz>
+         <button id="mybtn">Go to</button>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <a href="collection.html">Movies Reviews</a>
+            <a href="collection.html">Book Reviews</a>
+            <a href="collection.html">Decor & Styling</a>
+            <a href="collection.html">Events</a>
+            <span class="close">&times;</span>
+        </div>
+    </div>
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("mybtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function(){
+            modal.style.display = "block";
+        }
+        span.onclick = function(){
+            modal.style.display = "none";
+        }
+        window.onclick = function(event){
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}

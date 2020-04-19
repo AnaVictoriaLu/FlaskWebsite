@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}{{ super() }} - Team{% endblock %}
+
+{% block content %}
+    <style>
+    img:hover{
+        transform:scale(1.2) ;
+    }
+    </style>
+    <div class="container">
+        <h1>Team</h1>
+        <a href=https://www.instagram.com/anavictorialucio/ target="_blank"><img src="{{ url_for('static', filename='images/me.png') }}" width="200px" height="200px"/></a>
+        <p>Ana Victoria Lucio<br>
+            Bachelor of Computer Science<br>
+            Description... </p>
+        <a href=https://www.instagram.com/thisyouthiswild/ target="_blank"><img src="{{ url_for('static', filename='images/icon.png') }}" width="180px" height="180px"/></a>
+        <p>AJ Aujla<br>
+            Bachelor of Commerce<br>
+            Description... </p>
+    </div>
+    <footer class="page-footer font-small blue">
+         <div class="footer text-center py-3">
+             <h1>Contact</h1>
+             <br>
+             <a href="https://www.instagram.com/anavictorialucio/"  target="_blank">
+                <img src="{{ url_for('static', filename='images/ig.png') }}" style="width:50px;height:50px;padding:5px"/></a>
+            <a href="mailto:catalan.lucio11@gmail.com">
+                <img src="{{ url_for('static', filename='images/mail.png') }}" style="width:50px;height:50px;padding:5px"/></a>
+            <a href="https://www.youtube.com/channel/UC646MSL1eo9kqt7Owi1Lftw?view_as=subscriber"  target="_blank">
+                <img src="{{ url_for('static', filename='images/yt.png') }}" style="width:50px;height:50px;padding:5px"/></a>
+         </div>
+    </footer>
+
+{% endblock %}
